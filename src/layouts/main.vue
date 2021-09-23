@@ -1,8 +1,12 @@
-<!-- This example requires Tailwind CSS v2.0+ -->
 <template>
-  <header class="bg-indigo-600">
-    <HeaderMenu></HeaderMenu>
-    <ContainerMain></ContainerMain>
-    <Footer></Footer>
-  </header>
+  <main class="px-4 py-10 text-center text-gray-700 dark:text-gray-200">
+    <router-view />
+    <!--    Main content section-->
+    <ContentContainer />
+    <!--    Footer component-->
+    <Footer />
+    <div class="mt-5 mx-auto text-center opacity-25 text-sm">
+      [Main Layout]
+    </div>
+  </main>
 </template>

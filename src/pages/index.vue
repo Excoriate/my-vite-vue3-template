@@ -11,9 +11,22 @@ const go = () => {
 }
 
 const { t } = useI18n()
+
+// TODO: Render this dynamically
+const menuParamToProp = [
+  { name: 'MenuFromProp1', isEnabled: true },
+  { name: 'MenuFromProp2', isEnabled: true },
+  { name: 'MenuFromProp3', isEnabled: true },
+  { name: 'MenuFromProp4', isEnabled: true },
+]
+
 </script>
 
 <template>
+  <!--  Header component with menu-->
+  <header class="bg-indigo-600">
+    <Menu :navigation="menuParamToProp"></Menu>
+  </header>
 </template>
 
 <route lang="yaml">
