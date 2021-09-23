@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useUserStore } from '~/stores/user'
+import { getMenuOptionsFake } from '~/services/auth/menuService'
 
 const user = useUserStore()
 const name = ref(user.savedName)
@@ -13,19 +14,15 @@ const go = () => {
 const { t } = useI18n()
 
 // TODO: Render this dynamically
-const menuParamToProp = [
-  { name: 'MenuFromProp1', isEnabled: true },
-  { name: 'MenuFromProp2', isEnabled: true },
-  { name: 'MenuFromProp3', isEnabled: true },
-  { name: 'MenuFromProp4', isEnabled: true },
-]
+const dynamicMenu = getMenuOptionsFake()
 
 </script>
 
 <template>
   <!--  Header component with menu-->
   <header class="bg-indigo-600">
-    <Menu :navigation="menuParamToProp"></Menu>
+    <!--  Menu component, dynamically rendered based on options, session, license, etc-->
+    <Menu :navigation="dynamicMenu"></Menu>
   </header>
 </template>
 

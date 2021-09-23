@@ -10,7 +10,10 @@
           </a>
           <div class="hidden ml-10 space-x-8 lg:block">
             <a v-for="link in navigation" :key="link.name" :href="link.href" class="text-base font-medium text-white hover:text-indigo-50">
-              {{ link.name }}
+              <!--        TODO: For statement, conditional rendering based on props properties-->
+              <li v-if="link.isEnabled" class="inline-block align-baseline">
+                {{ link.name }}
+              </li>
             </a>
           </div>
         </div>
@@ -22,9 +25,12 @@
         </div>
       </div>
       <div class="py-4 flex flex-wrap justify-center space-x-6 lg:hidden">
-        <a v-for="link in navigation" :key="link.name" :href="link.href" class="text-base font-medium text-white hover:text-indigo-50">
-          {{ link.name }}
-        </a>
+        <!--        For statement to dynamically render props within this component-->
+        <ul>
+          <a v-for="link in navigation" :key="link.name" :href="link.href" class="text-base font-medium text-white hover:text-indigo-50">
+            {{ link.name }}
+          </a>
+        </ul>
       </div>
     </nav>
   </header>
@@ -33,7 +39,8 @@
 <script setup lang="ts">
 
 // TODO: (template) Received from parent component index.vue :)
-type navigationMenuType = [ { name: string; isEnabled: boolean; href: string | undefined}]
+import { navigationMenuType } from '~/types'
+
 const props = defineProps<{ navigation: navigationMenuType}>()
 // eslint-disable-next-line no-console
 console.log(`Navigation Props received: ${JSON.stringify(props)}`)
