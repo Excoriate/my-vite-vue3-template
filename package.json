@@ -20,6 +20,8 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.9.0",
+    "@headlessui/vue": "^1.4.1",
+    "@heroicons/vue": "^1.0.4",
     "@iconify/json": "^1.1.403",
     "@intlify/vite-plugin-vue-i18n": "^2.4.0",
     "@types/markdown-it-link-attributes": "^3.0.1",
