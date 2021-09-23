@@ -13,6 +13,8 @@
               <!--        TODO: For statement, conditional rendering based on props properties-->
               <li v-if="link.isEnabled" class="inline-block align-baseline">
                 {{ link.name }}
+                <!--                Example, how to call a function to dynamically compute or parse values-->
+                <!--                {{ getUpperMenuName('link.name') }}-->
               </li>
             </a>
           </div>
@@ -41,7 +43,13 @@
 // TODO: (template) Received from parent component index.vue :)
 import { navigationMenuType } from '~/types'
 
+function getUpperMenuName(menuName: string) {
+  return menuName.toUpperCase()
+}
+
+// Props definition using the typescript feature built-in
 const props = defineProps<{ navigation: navigationMenuType}>()
+
 // eslint-disable-next-line no-console
 console.log(`Navigation Props received: ${JSON.stringify(props)}`)
 

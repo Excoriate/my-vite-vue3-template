@@ -22,7 +22,7 @@ const dynamicMenu = getMenuOptionsFake()
   <!--  Header component with menu-->
   <header class="bg-indigo-600">
     <!--  Menu component, dynamically rendered based on options, session, license, etc-->
-    <Menu :navigation="dynamicMenu"></Menu>
+    <AppMenu :navigation="dynamicMenu" />
   </header>
 </template>
 
